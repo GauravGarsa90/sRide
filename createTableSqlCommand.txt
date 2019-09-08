@@ -1,6 +1,0 @@
-CREATE TABLE `sride`.`audit_logs` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `date` VARCHAR(45) NULL,
-  `response` TEXT(1000) NULL,
-  `was_prime` TINYINT NULL,
-  PRIMARY KEY (`id`));

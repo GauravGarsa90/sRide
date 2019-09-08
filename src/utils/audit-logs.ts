@@ -3,8 +3,8 @@ import * as util from 'util';
 
 const con = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "gamma!1110",
+    user: "srideuser",
+    password: "sridepassword",
     database: "sride"
   });
 const query = util.promisify(con.query).bind(con);
