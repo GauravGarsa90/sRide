@@ -1,0 +1,75 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "PrimeWeather API",
+      "description": "Sride interview assignment",
+      "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "host": "localhost:3000",
+    "basePath": "/sride/v1",
+    "paths": {
+        "/prime-weather": {
+          "get": {
+            "x-swagger-router-controller": "prime-weather",
+            "operationId": "primeWeather",
+            "tags": ["/prime-weather"],
+            "description": "Returns the weather if current date is prime",
+            "responses": {
+              "default": {
+                "description": "Invalid request.",
+                "schema": {
+                  "$ref": "#/definitions/Error"
+                }
+              },
+              "200": {
+                "description": "Successful request.",
+                "schema": {
+                  "$ref": "#/definitions/pingResponse"
+                }
+              }
+            }
+          }
+        },
+      "/ping": {
+        "get": {
+          "x-swagger-router-controller": "ping",
+          "operationId": "ping",
+          "tags": ["/ping"],
+          "description": "Returns the weather if current date is prime",
+          "responses": {
+            "default": {
+              "description": "Invalid request.",
+              "schema": {
+                "$ref": "#/definitions/Error"
+              }
+            },
+            "200": {
+              "description": "Successful request.",
+              "schema": {
+                "$ref": "#/definitions/pingResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Error": {
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": ["message"]
+      },
+      "pingResponse": {
+        "properties": {
+            "msg": {
+                "type": "string"
+            }
+        },
+        "required": ["msg"]
+      }
+    }
+  }

@@ -2,10 +2,26 @@
   "name": "sride",
   "version": "1.0.0",
   "description": "interview assignment",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "shx rm -rf ./lib",
+    "build": "tsc -p .",
+    "postbuild": "shx cp swagger.json ./lib/",
+    "start": "node ./lib/index.js",
+    "prestart": "npm run build"
   },
   "author": "Gaurav Garsa",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/connect": "^3.4.32",
+    "@types/node": "^12.7.3",
+    "@types/node-fetch": "^2.5.0",
+    "@types/swagger-tools": "^0.10.6",
+    "connect": "^3.7.0",
+    "node-fetch": "^2.6.0",
+    "swagger-tools": "^0.10.4",
+    "ts-lint": "^4.5.1",
+    "typescript": "^3.5.3"
+  }
 }
