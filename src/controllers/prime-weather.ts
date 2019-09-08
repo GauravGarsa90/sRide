@@ -1,10 +1,21 @@
+import { writeAuditLogs } from '../utils/audit-logs';
 const fetch = require('node-fetch');
 export const primeWeather = async (req, res) => {
-    const date = new Date().getDate();
-    if(isPrime(date)){
+    const date = new Date();
+    if(isPrime(date.getDate())){
         const weather = await getWeatherInfo();
+        writeAuditLogs({
+            time: date,
+            response: JSON.stringify(weather),
+            prime: 1
+        });
         res.end(weather);
     }else{
+        writeAuditLogs({
+            time: date,
+            response: "Date is not prime so no date",
+            prime: 0
+        });
         res.end("Date is not prime so no date");
     }
 }
